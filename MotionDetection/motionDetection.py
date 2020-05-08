@@ -10,6 +10,7 @@ while True:
     ret, frame = cap.read()
     # gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     # blur = cv2
+    frame = cv2.flip(frame, 1)
     fgmask = fgbg.apply(frame)
     closing = cv2.morphologyEx(fgmask, cv2.MORPH_CLOSE, kernel)
     opening = cv2.morphologyEx(closing, cv2.MORPH_OPEN, kernel)
